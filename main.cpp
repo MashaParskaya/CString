@@ -1,27 +1,39 @@
-#include "head.hpp"
-#include "CIntNR.cpp"
+#include <iostream>
+#include <string>
+#include "cstr.hpp"
+#include "autotest.hpp"
 
+using namespace std;
 
-
-int main()
-{
-    int a[len];
-    int b[len];
-    int mod;
-    for (int i = 0; i < len; i++)
-        cin >> a[i];
-    for (int i = 0; i < len; i++)
-        cin >> b[i];
-    cin >> mod;
-    CIntNR v1(a, mod);
-    CIntNR v2(b, mod);
-    v1.print_num();
-    v2.print_num();
-    CIntNR v3;
-    v3 = v1 + v2;
-    v3.print_num();
-    CIntNR v4;
-    v4 = v1 - v2;
-    v4.print_num();
-    return 0;
+int main(){
+  Autotest();
+  int n;
+  cin >> n;
+  char* a = new char[n];
+  for (int i = 0; i < n; i++){
+    cin >> a[i];
+  }
+  CString s1(a, n);
+  int m;
+  cin >> m;
+  char* b = new char[m];
+  for (int i = 0; i < m; i++){
+    cin >> b[i];
+  }
+  CString s2(b, m);
+  CString s3;
+  s3 = s1 + s2;
+  for (int i = 0; i < s3.get_length(); i++){
+    cout << s3.get_element(i);
+  }
+  cout << endl;
+  string ss;
+  cin >> ss;
+  s3 = ss;
+  for (int i = 0; i < s3.get_length(); i++){
+    cout << s3.get_element(i);
+  }
+  cout << endl;
+  delete []a;
+  delete []b;
 }
